@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cliente>
+  <codicefiscale>RLIFRC47B25F503F</codicefiscale>
+  <codicemacello>H18</codicemacello>
+  <codicefiscalemacello>00742120363</codicefiscalemacello>
+  <ragionesocialemacello>SALUMIFICIO VAL DRAGONE SNC DI RIOLI &amp;  C.</ragionesocialemacello>
+<classificatori>
+  <classificatore>
+    <id>S-581</id>
+  </classificatore>
+    <classificatore>
+    <id>S-582</id>
+  </classificatore>
+  </classificatori>
+    <strumenti>
+  <strumento>
+    <id>ZP</id>
+    <strumento>ZP</strumento>
+    <funzionamento>OK</funzionamento>
+  </strumento>
+
+  </strumenti>
+</cliente>

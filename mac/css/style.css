@@ -1,0 +1,45 @@
+.nascondi {
+  display:none;
+}
+
+.w25{
+  width:25%;
+}
+.w50{
+  width:25%;
+}
+
+.titoletto{
+  text-align:right;
+  font-weight:bold;
+
+}
+#righenuovo{
+  margin-top:20px;
+  width:80%;
+}
+
+td, th{
+  text-align:center;
+  text-transform: uppercase;
+  padding-bottom:3px;
+}
+
+#altrerighe{
+  margin-top:10px; margin-left:   20px;
+}
+
+
+ .control-label:after {
+  content:"*";color:red;
+}
+
+
+body, .container {margin:0}
+
+.wsuini {width:12.4%;}
+
+.panel-body {
+    margin-right: 15px;
+    line-height: 1.5;
+}

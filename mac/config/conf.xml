@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF8"?>
+<calcoli>
+  <perccalo>  2</perccalo>
+
+  <percdiaframma>
+    <valore> <id>110</id> <num>0.26</num> </valore>
+    <valore > <id>99999</id> <num>0.29</num> </valore>  
+ </percdiaframma>
+
+<percsugna >
+  <valore ><id>100</id><num>0</num></valore>
+  <valore ><id>110</id><num>2.05</num></valore>
+  <valore  ><id>130</id><num>2.52</num></valore>
+  <valore ><id>140</id><num>2.62</num></valore>
+  <valore ><id>150</id><num>2.83</num></valore>
+  <valore ><id>99999</id><num>2.96</num></valore>
+</percsugna> 
+
+
+<tipo >
+  <valore ><id>110</id><num>L</num></valore>
+  <valore ><id>99999</id><num>H</num></valore>
+</tipo>
+
+
+ <classe >
+  <valore><id>40</id><num>P </num></valore>  
+  <valore><id>45</id><num>O </num></valore>
+  <valore><id>50</id><num>R </num></valore>
+  <valore><id>55</id><num>U </num></valore>
+  <valore><id>60</id><num>E </num></valore>
+  <valore><id>999</id><num>S </num></valore>
+</classe>
+
+
+
+  <tipisuino id="L">
+    <pesomin>70</pesomin>
+    <pesomax  >110</pesomax>
+    <tiponome>SUINO LEGGERO</tiponome>
+    <tipodes>carcasse di peso compreso tra 70 e 110 kg.</tipodes>
+    <classe>E</classe>
+    <vala>58.4789</vala>
+    <valb>0.5697</valb>
+    <valc>0.1230</valc>
+    <x1>1.5</x1>
+    <x2>13</x2>
+  </tipisuino>
+
+  <tipisuino id="H">
+    <pesomin >110</pesomin>
+    <pesomax  >180</pesomax>
+    <tiponome>SUINO PESANTE</tiponome>
+    <tipodes>carcasse di peso compreso tra 110,1 e 180 kg.</tipodes>
+    <classe>R</classe>
+    <vala>57.7975</vala>
+    <valb>0.5126</valb>
+    <valc>0.0834</valc>
+    <x1>1.5</x1>
+    <x2>13</x2>
+  </tipisuino>
+  </calcoli>

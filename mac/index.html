@@ -1,0 +1,172 @@
+
+<!doctype html>
+
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+
+  <title>Macello tool</title>
+  <meta name="description" content="Macello tool">
+  <meta name="author" content="falcon82">
+
+  <script src="js/html5shiv.js"></script>
+  <script src="js/jquery-2.2.4.min.js"></script>
+  <script src="js/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/func.js"></script>
+  <script src="js/funzioni_generali.js"></script>
+  <script src="js/config/cliente.js"></script>
+  <script src="js/config/variabili.js"></script>
+  <script src="js/vkbeautify.0.99.00.beta.js"></script>
+
+<link rel="stylesheet" href="js/bootstrap-3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="js/bootstrap-3.3.7/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/style.css">
+ <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+
+  <script >
+  var maxrighe=0;
+var valYtot=new Array();
+$(document).click(function(event) {
+
+        var s=event.target.id;
+        var t=s.substr((s.lastIndexOf("_"))+1, 3);
+  if (isNumeric( t )) attivariga(t);
+
+});
+$(document).ready(function() {
+  $("#nomefile").val(codicefiscale+'_'+datafile()+'.xml');
+  $("#codicefiscale").html(codicefiscale);
+  $("#codicemacello").html(codicemacello);
+  $("#codicefiscalemacello").html(codicefiscalemacello);
+  $("#ragionesocialemacello").html(ragionesocialemacello);
+
+  selectstrumento(1 );
+  selectclassificatore(1 );
+  for (i = 1; i <= 100; i++) {
+      $("#righenuovo").append(addriga(i));
+      valYtot[i]=0;
+  }
+
+  showriga();
+  attivariga (1);
+
+
+});
+
+  </script>
+</head>
+<body onload=" ">
+
+
+
+<script type="text/javascript">
+
+ic= '<select id="cla###"><option value="S-581">S-581</option><option value="S-582">S-582</option></select>' ;
+is= '<select id="str###"><option value="ZP">ZP</option></select>' ;
+
+
+//riempi('{"110":"0.26","99999":"0.29"}','{"100":"0","110":"2.05","130":"2.52","140":"2.62","150":"2.83","99999":"2.96"}','{"40":"P ","45":"O ","50":"R ","55":"U ","60":"E ","999":"S "}','{"L":{"pesomin":"70","pesomax":"110","tiponome":"SUINO LEGGERO","tipodes":"carcasse di peso compreso tra 70 e 110 kg.","classe":"E","vala":"58.4789","valb":"0.5697","valc":"0.1230","x1":"1.5","x2":"13","y":65.03045},"H":{"pesomin":"110","pesomax":"180","tiponome":"SUINO PESANTE","tipodes":"carcasse di peso compreso tra 110,1 e 180 kg.","classe":"R","vala":"57.7975","valb":"0.5126","valc":"0.0834","x1":"1.5","x2":"13","y":63.6924}}');
+
+//alert (percsugna[0][0]);
+
+
+
+</script>
+<div class="container">
+
+<div class="panel panel-default">
+  <div class="panel-heading">Dati Cliente</div>
+  <div class="panel-body">
+ <!-- <div class="row">-->
+  <div class="col-sm-6"><span  class="titoletto " >Ragione Sociale: </span><span class=" "id="ragionesocialemacello"></span></div>
+  <div class="col-sm-6"> <span  class="titoletto " >Codice Fiscale Macello:  </span><span class=" "id="codicefiscalemacello"></span></div>
+ <div class="col-sm-6"><span  class="titoletto " >Codice Fiscale  :  </span><span class=" "id="codicefiscale"></span></div>
+ <div class="col-sm-6"> <span  class="titoletto " >Codice    :  </span><span class=" "id="codicemacello"></span>  </div>
+
+ <!--</div>-->
+
+
+  </div>
+</div>
+<!--
+
+  </div>
+<div class="container">
+-->
+<div class="panel panel-default">
+  <div class="panel-heading">File e Data</div>
+  <div class="panel-body">
+  <div class="row">
+  <label class="col-sm-3 titoletto    control-label">Nome file: </label><input  class="col-sm-3" type="text" id="nomefile" name="nomefile" value=""/>
+  <label class="col-sm-3 titoletto   control-label">Data Macellazione (GG/MM/AAAA): </label><input class="col-sm-3" type="text" id="datamac" name="datamac" value="" onblur="controlladata('datamac')"/>
+</div>
+
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">Certificato</div>
+  <div class="panel-body">
+
+  <div class="row">
+
+    <label class="col-sm-3 titoletto   control-label">Numero Certificato </label><input class="col-sm-3" type="text" id="numcert" name="numcert" value=""/>
+
+
+    <label class="col-sm-3 titoletto   control-label">Data Certificato (GG/MM/AAAA): </label><input class="col-sm-3" type="text" id="datacert" name="datacert" value="" onblur="controlladata('datacert')"/>     <br/>
+     <label class="col-sm-3 titoletto   control-label">Codice Allevamento </label><input class="col-sm-3" type="text" id="codall" name="codall" value=""/>
+      <label class="col-sm-3 titoletto   control-label">Allevamento di origine </label><input  class="col-sm-3" type="text" id="orall" name="orall" value=""/>
+</div>
+
+  </div>
+</div>
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">Suini</div>
+  <div class="panel-body">
+  <div class="row">
+
+<label class="col-sm-1 titoletto wsuini  control-label">Tot. Certificati </label><input class="wsuini col-sm-1" type="text" id="totsuicert" name="totsuicert" value="" onblur="controllanumerogen('totsuicert')"/>
+<label class="col-sm-1 titoletto  wsuini control-label">Tot. Macellati </label><input class="wsuini col-sm-1" type="text" id="totsuimac" name="totsuimac" value=""  onblur="controllanumerogen('totsuimac')"/>
+<label class="wsuini col-sm-1 titoletto   control-label">N. Certificati </label><input class="wsuini col-sm-1" type="text" id="nsuicert" name="nsuicert" value=""  onblur="controllanumerogen('nsuicert')"/>
+<label class="col-sm-1 titoletto wsuini  control-label">N. Macellati </label><input class="col-sm-1 wsuini" type="text" id="nsuimac" name="nsuimac" value=""  onblur="controllanumerogen('nsuimac')"/>
+<br/>
+<label class="col-sm-1 titoletto wsuini  control-label">Peso vivo </label><input class="col-sm-1 wsuini" type="text" id="pesovivo" name="pesovivo" value=""  onblur="controllanumerogen('pesovivo')"/>
+</div>
+
+
+  </div>
+</div>
+
+
+
+  </div>
+<!--
+<table id="righe"> <tr><th>Classificatore</th><th>Strumento</th><th>LORDO</th><th>GRASSO</th><th>MAGRO</th><th>Ricalcola</th><th>Risultato</th><th>Elimina Riga</th></tr></table>
+<button id="addrighe" onclick="aggiungirighe()">+</button>
+-->
+<table id="righenuovo">  <tr><th>Classificatore</th><th>Strumento</th><th>LORDO</th><th>GRASSO</th><th>MAGRO</th><th>Ricalcola</th><th>Risultato</th><th>Elimina Riga</th> </tr></table>
+
+<button id="altrerighe" onclick="showriga()">AGGIUNGI RIGHE <span class="glyphicon glyphicon-plus"></span> </button>
+
+
+  <p>
+<br/><br/>
+<button id="creaxml" onclick="crea()" class="nascondi">Crea file</button>
+<a download="info.txt" id="downloadlink" class="nascondi">Download</a>
+
+<br/>
+<br/>
+<button id="mostraxml" onclick="mostraxml()" class="nascondi">Mostra XML</button><br/><br/>
+<textarea id="xml" rows="100" cols="80" disabled class="nascondi">
+</textarea>
+
+  </p>
+</body>
+</html>
