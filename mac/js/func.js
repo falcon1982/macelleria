@@ -161,7 +161,7 @@ for (i = 0; i < righeok.length; i++) {
   break;
 }
 var valYmedia=Math.round(sommay()/righe*100)/100;
-
+var valYmedia=Math.round(sommay()/($('#totsuimac').val())*100)/100;
 
 var ops = document.getElementById("cla_"+rigamin).options.length;
 var op='';
@@ -298,10 +298,10 @@ function addriga(idnum){
 }
 function showriga(){
 
-  for (i = maxrighe+1; i <= maxrighe+5; i++) {
+  for (i = maxrighe+1; i <= maxrighe+1; i++) {
   $("#riga_"+i).removeClass('nascondi');
   }
-  maxrighe+=5;
+  maxrighe+=1;
 }
 function attivariga (val){
 
